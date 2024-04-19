@@ -1,7 +1,0 @@
-{
-  "name": "hub",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
