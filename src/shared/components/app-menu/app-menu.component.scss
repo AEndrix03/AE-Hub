@@ -1,0 +1,35 @@
+button {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  background-color: transparent;
+  color: rgb(31, 31, 31);
+}
+
+.accordion-btn {
+  width: 100% !important;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent !important;
+  color: rgb(31, 31, 31);
+  padding: 0;
+}
+
+ion-accordion-group,
+ion-accordion {
+  width: 100%;
+}
+
+ion-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+ion-icon {
+  font-size: 1.25rem;
+}

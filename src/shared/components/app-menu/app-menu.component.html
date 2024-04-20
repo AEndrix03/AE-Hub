@@ -1,0 +1,69 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <p>{{ appName }}</p>
+          <p style="font-size: 0.7em">{{ appVersion }}</p>
+        </div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <button ion-item *ngFor="let item of subMenu">
+        <ion-accordion-group *ngIf="!!item?.children">
+          <ion-accordion>
+            <button
+              slot="header"
+              ion-item
+              color="light"
+              class="ion-padding accordion-btn"
+            >
+              <ion-label>{{ item.title }}</ion-label>
+              <ion-icon
+                class="ion-accordion-toggle-icon"
+                [name]="item.icon || 'chevron-down'"
+              ></ion-icon>
+            </button>
+            <button
+              ion-item
+              class="ion-padding"
+              slot="content"
+              style="padding-right: 0; padding-left: 1.5rem"
+              *ngFor="let subItem of item.children"
+            >
+              <ion-label>{{ subItem.title }}</ion-label>
+              <ion-icon *ngIf="!!subItem.icon" [name]="subItem.icon"></ion-icon>
+            </button>
+          </ion-accordion>
+        </ion-accordion-group>
+        <ion-label *ngIf="!item?.children">{{ item.title }}</ion-label>
+        <ion-icon
+          *ngIf="!item?.children && !!item?.icon"
+          [name]="item.icon"
+        ></ion-icon>
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{ appName }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
+</div>
