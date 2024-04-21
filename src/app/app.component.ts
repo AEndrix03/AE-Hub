@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ROUTES } from 'src/shared/configs/routes';
 import { APPLICATION_NAME, APPLICATION_VERSION } from 'src/shared/costants';
 import { MenuItem } from 'src/shared/models';
 
@@ -13,34 +14,7 @@ export class AppComponent {
 
   subMenuTitle: string = 'AEndrix - ' + this.appName;
 
-  subMenu: MenuItem[] = [
-    {
-      title: 'Home',
-      path: '/home',
-      icon: 'home',
-    },
-    {
-      title: 'About',
-      path: '/about',
-      icon: 'information-circle',
-    },
-    {
-      title: 'Contact',
-      path: '/contact',
-      children: [
-        {
-          title: 'Email',
-          path: '/contact/email',
-          icon: 'mail',
-        },
-        {
-          title: 'Phone',
-          path: '/contact/phone',
-          icon: 'call',
-        },
-      ],
-    },
-  ];
+  subMenu: MenuItem[] = ROUTES;
 
   constructor() {}
 }

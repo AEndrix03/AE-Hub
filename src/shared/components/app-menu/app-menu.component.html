@@ -39,19 +39,29 @@
               slot="content"
               style="padding-right: 0; padding-left: 1.5rem"
               *ngFor="let subItem of item.children"
+              (click)="goTo(item.path)"
             >
               <ion-label>{{ subItem.title }}</ion-label>
               <ion-icon *ngIf="!!subItem.icon" [name]="subItem.icon"></ion-icon>
             </button>
           </ion-accordion>
         </ion-accordion-group>
-        <ion-label *ngIf="!item?.children">{{ item.title }}</ion-label>
-        <ion-icon
-          *ngIf="!item?.children && !!item?.icon"
-          [name]="item.icon"
-        ></ion-icon>
+        <button
+          *ngIf="!item?.children"
+          (click)="goTo(item.path)"
+          style="padding: 0 !important"
+        >
+          <ion-label>{{ item.title }}</ion-label>
+          <ion-icon *ngIf="!!item?.icon" [name]="item.icon"></ion-icon>
+        </button>
       </button>
     </ion-list>
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <button (click)="goTo('settings')">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-fab>
   </ion-content>
 </ion-menu>
 <div class="ion-page" id="main-content">
@@ -64,6 +74,6 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-router-outlet></ion-router-outlet>
+    <ng-content></ng-content>
   </ion-content>
 </div>

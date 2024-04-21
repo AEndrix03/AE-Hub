@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'src/shared/models';
 
 @Component({
@@ -11,7 +12,11 @@ export class AppMenuComponent implements OnInit {
   @Input() appVersion: string = '';
   @Input() subMenu: MenuItem[] = [];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+  }
 }
