@@ -7,6 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from 'src/shared/components/shared/shared.module';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { SharedModule } from 'src/shared/components/shared/shared.module';
     IonicModule.forRoot(),
     AppRoutingModule,
     SharedModule,
+    ProfileModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
